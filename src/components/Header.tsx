@@ -60,9 +60,6 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img src="/bamp-logo.png" alt="BAMP" className="h-14 w-auto transition-transform duration-300 group-hover:scale-105" />
-            <span className={`hidden sm:block font-display font-bold text-xl transition-colors ${
-              scrolled ? "text-foreground" : "text-white"
-            }`}>The Bay Area Mural Program</span>
           </Link>
 
           {/* Desktop Navigation */}
