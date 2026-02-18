@@ -51,7 +51,6 @@ const Podcast = () => {
         breadcrumbs={[{ label: "Podcast", href: "/podcast" }]}
       />
       <IntroSection />
-      <TeamSection />
       <GuestsSection />
       <CTASection />
     </>

@@ -19,7 +19,6 @@ const Services = () => {
       <ServicesGrid />
       <ProcessSection />
       <FAQSection />
-      <CTASection />
     </>
   );
 };
@@ -35,6 +34,7 @@ const ServicesGrid = () => {
       description: "Commission a unique mural designed specifically for your space. We work with you from concept to completion, creating artwork that tells your story.",
       features: ["Initial consultation", "Custom design concepts", "Professional installation", "Touch-up warranty"],
       image: "/images/murals/community-youthempowerment1.jpeg",
+      comingSoon: false,
     },
     {
       icon: Users,
@@ -42,6 +42,7 @@ const ServicesGrid = () => {
       description: "Collaborative art projects that engage community members in the creative process. We facilitate workshops and paint days that bring neighborhoods together.",
       features: ["Community workshops", "Collaborative design", "Youth engagement", "Cultural storytelling"],
       image: "/images/murals/File_040.jpeg",
+      comingSoon: false,
     },
     {
       icon: Building2,
@@ -49,13 +50,15 @@ const ServicesGrid = () => {
       description: "Transform your business space with professional mural installations that captivate customers and enhance your brand identity.",
       features: ["Brand integration", "Large-scale installations", "Indoor & outdoor options", "Quick turnaround"],
       image: "/images/murals/mural-screenshot-3.png",
+      comingSoon: false,
     },
     {
       icon: Camera,
       title: "Oakland Mural Tour",
       description: "Experience Oakland's vibrant street art scene with a guided tour of BAMP's most iconic murals. Learn the stories behind the art and the communities they represent.",
       features: ["Guided walking tour", "Artist stories & history", "Photo opportunities", "Community connection"],
-      image: "/images/murals/IMG_2493.jpeg",
+      image: "/images/murals/activism-blackliberationwalkingtour.jpeg",
+      comingSoon: false,
     },
     {
       icon: GraduationCap,
@@ -63,6 +66,7 @@ const ServicesGrid = () => {
       description: "An immersive art camp experience for young creatives to learn mural techniques, develop their artistic voice, and collaborate on real community projects.",
       features: ["Hands-on mural painting", "Artist mentorship", "Creative workshops", "Community project participation"],
       image: "/images/murals/IMG_1136.jpg",
+      comingSoon: true,
     },
   ];
 
@@ -102,21 +106,21 @@ const ServicesGrid = () => {
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bamp-charcoal/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
                     <service.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {service.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm">
                       <Check className="w-4 h-4 text-primary" />
@@ -124,6 +128,21 @@ const ServicesGrid = () => {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto">
+                  {service.comingSoon ? (
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <Link to="/contact">
+                      <Button variant="outline" size="sm" className="rounded-full group">
+                        Get Started
+                        <ArrowRight className="ml-1.5 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      </Button>
+                    </Link>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -133,11 +152,17 @@ const ServicesGrid = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 text-center"
+          className="mt-20 rounded-3xl bg-primary px-8 py-14 text-center"
         >
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
+            Let's discuss how we can transform your space with a custom mural that tells your unique story.
+          </p>
           <Link to="/contact">
-            <Button size="lg" className="rounded-full px-12 py-6 group">
-              Get in Touch With Us
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-8 group">
+              Request a Consultation
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
@@ -281,36 +306,5 @@ const FAQSection = () => {
   );
 };
 
-const CTASection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section ref={ref} className="py-24 bg-primary">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-primary-foreground/80 text-lg mb-10">
-            Let's discuss how we can transform your space with a custom mural 
-            that tells your unique story.
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 group">
-              Request a Consultation
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
 
 export default Services;

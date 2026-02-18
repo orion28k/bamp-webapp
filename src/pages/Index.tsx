@@ -63,13 +63,13 @@ const Hero = () => {
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/about">
-              <Button 
-                size="lg" 
+            <Link to="/bamp-camp">
+              <Button
+                size="lg"
                 variant="outline"
                 className="bg-transparent border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 py-6 rounded-full text-lg"
               >
-                About Us
+                About BAMP Camp
               </Button>
             </Link>
           </motion.div>

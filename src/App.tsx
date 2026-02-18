@@ -15,6 +15,7 @@ import Podcast from "./pages/Podcast";
 import Kenya from "./pages/Kenya";
 import JoinTheTeam from "./pages/JoinTheTeam";
 import OurTeam from "./pages/OurTeam";
+import BampCamp from "./pages/BampCamp";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/kenya" element={<Kenya />} />
             <Route path="/join-the-team" element={<JoinTheTeam />} />
             <Route path="/ourteam" element={<OurTeam />} />
+            <Route path="/bamp-camp" element={<BampCamp />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

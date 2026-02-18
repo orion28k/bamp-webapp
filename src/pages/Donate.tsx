@@ -39,12 +39,12 @@ const DonationSection = () => {
   const impacts = [
     {
       icon: Paintbrush,
-      amount: "$25",
+      amount: "$100",
       description: "Provides art supplies for one youth workshop participant",
     },
     {
       icon: Users,
-      amount: "$100",
+      amount: "$250",
       description: "Funds artist stipends for educational programs",
     },
     {
@@ -56,6 +56,16 @@ const DonationSection = () => {
       icon: Heart,
       amount: "$1,000",
       description: "Helps fund an entire youth summer art program",
+    },
+    {
+      icon: Paintbrush,
+      amount: "$2,500",
+      description: "Sponsors a full community mural project from concept to completion",
+    },
+    {
+      icon: Users,
+      amount: "$5,000",
+      description: "Funds an entire youth summer art program and mural installation",
     },
   ];
 

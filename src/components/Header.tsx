@@ -12,6 +12,7 @@ const navLinks = [
     href: "#",
     submenu: [
       { label: "Our Services", href: "/services" },
+      // { label: "BAMP Camp", href: "/bamp-camp" },
       { label: "Art + Solar Kenya 2024", href: "/kenya" },
       // { label: "Art Clash 2025 [WIP]", href: "/art-clash" },
       { label: "Join the Team", href: "/join-the-team" },
