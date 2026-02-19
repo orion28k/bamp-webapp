@@ -10,13 +10,32 @@ export const Footer = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("https://www.thebamp.org/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Newsletter Subscriber",
+          email,
+          subject: "New Newsletter Subscriber",
+          message: `New newsletter subscriber: ${email}`,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       setSubscribed(true);
       setEmail("");
-      setTimeout(() => setSubscribed(false), 3000);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -68,15 +87,20 @@ export const Footer = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/50 h-12 rounded-full px-6"
                 required
+                disabled={loading}
               />
-              <Button 
+              <Button
                 type="submit"
+                disabled={loading}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 rounded-full px-8 group"
               >
-                {subscribed ? "Subscribed!" : "Subscribe"}
+                {subscribed ? "Subscribed!" : loading ? "Sending…" : "Subscribe"}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
+            {error && (
+              <p className="text-red-400 text-sm mt-3">{error}</p>
+            )}
           </motion.div>
         </div>
       </div>

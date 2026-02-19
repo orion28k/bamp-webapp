@@ -21,11 +21,31 @@ const BrushSmear = ({ className }: { className?: string }) => (
 export default function ComingSoon() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("https://www.thebamp.org/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Newsletter Subscriber",
+          email,
+          subject: "New Newsletter Subscriber",
+          message: `New newsletter subscriber: ${email}`,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -211,6 +231,7 @@ export default function ComingSoon() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
+                  disabled={loading}
                   className="flex-1 font-body text-sm px-5 py-4 rounded-full focus:outline-none transition-all duration-300"
                   style={{
                     background: "hsl(var(--bamp-cream) / 0.06)",
@@ -231,7 +252,8 @@ export default function ComingSoon() {
                 />
                 <button
                   type="submit"
-                  className="group flex items-center justify-center gap-2 font-body font-semibold text-sm px-7 py-4 rounded-full transition-all duration-300 whitespace-nowrap"
+                  disabled={loading}
+                  className="group flex items-center justify-center gap-2 font-body font-semibold text-sm px-7 py-4 rounded-full transition-all duration-300 whitespace-nowrap disabled:opacity-60"
                   style={{
                     background: "hsl(var(--bamp-red))",
                     color: "white",
@@ -248,10 +270,13 @@ export default function ComingSoon() {
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 >
-                  Notify Me
+                  {loading ? "Sending…" : "Notify Me"}
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </button>
               </form>
+              {error && (
+                <p className="font-body text-xs mt-3" style={{ color: "hsl(var(--bamp-red))" }}>{error}</p>
+              )}
             </>
           ) : (
             <motion.div
