@@ -9,12 +9,12 @@ const artworks = [
   // Original artworks
   {
     src: "/images/murals/community-zoe-buena-vista.jpg",
-    alt: "Zoe Buena Vista mural",
-    title: "Zoe Buena Vista",
+    alt: "Buena Vista mural",
+    title: "Buena Vista",
     category: "Community",
     location: "Bay Area",
     year: "",
-    artist: "BAMP",
+    artist: "Zoe Boston and Andre Jahmora",
   },
   {
     src: "/images/murals/community-wholefoods-oakland.jpg",
@@ -35,18 +35,9 @@ const artworks = [
     artist: "BAMP",
   },
   {
-    src: "/images/murals/IMG_0013.jpeg",
-    alt: "Boy kicking soccer ball mural",
-    title: "Untitled 2",
-    category: "Schools & Youth Centers",
-    location: "Kenya",
-    year: "2023",
-    artist: "BAMP",
-  },
-  {
     src: "/images/murals/IMG_2493.jpeg",
     alt: "Garden archway mural",
-    title: "Untitled 3",
+    title: "Garden Archway",
     category: "Community",
     location: "Berkeley",
     year: "2022",
@@ -54,8 +45,8 @@ const artworks = [
   },
   {
     src: "/images/murals/mural-screenshot-1.png",
-    alt: "Women portraits mural",
-    title: "Untitled 4",
+    alt: "Santa Barbra School mural",
+    title: "Santa Barbra School",
     category: "Schools & Youth Centers",
     location: "San Francisco",
     year: "2023",
@@ -630,6 +621,15 @@ const artworks = [
     category: "Sports",
     location: "Bay Area",
     year: "",
+    artist: "BAMP",
+  },
+  {
+    src: "/images/murals/IMG_0013.jpeg",
+    alt: "Boy kicking soccer ball mural",
+    title: "Youth Soccer",
+    category: "Schools & Youth Centers",
+    location: "Kenya",
+    year: "2023",
     artist: "BAMP",
   },
   {
