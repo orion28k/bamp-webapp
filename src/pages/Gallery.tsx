@@ -80,42 +80,6 @@ const artworks = [
     artist: "BAMP",
   },
   {
-    src: "/images/murals/IMG_0999.jpg",
-    alt: "Artists painting mural",
-    title: "Black Liberation Walking Tour",
-    category: "Community",
-    location: "Oakland",
-    year: "2023",
-    artist: "BAMP Collective",
-  },
-  {
-    src: "/images/murals/tempImage1b98Sr.jpg",
-    alt: "Vibrant mural painting",
-    title: "Youth Empowerment",
-    category: "Community",
-    location: "Emeryville",
-    year: "2023",
-    artist: "BAMP",
-  },
-  {
-    src: "/images/murals/art-as-a-lifelong-path.png",
-    alt: "Art education program",
-    title: "Rosa Parks Center",
-    category: "Schools & Youth Centers",
-    location: "Oakland",
-    year: "2022",
-    artist: "BAMP",
-  },
-  {
-    src: "/images/murals/photo-jun-19-2021.jpg",
-    alt: "Community celebration",
-    title: "Art Clash Winners",
-    category: "Community",
-    location: "East Oakland",
-    year: "2021",
-    artist: "BAMP Collective",
-  },
-  {
     src: "/images/murals/activism-aaacc-motherhood.jpg",
     alt: "AAACC Motherhood mural",
     title: "AAACC Motherhood",
@@ -146,15 +110,6 @@ const artworks = [
     src: "/images/murals/activism-blackliberationwalkingtour.jpeg",
     alt: "Black Liberation Walking Tour mural",
     title: "Black Liberation Walking Tour",
-    category: "Activism",
-    location: "Bay Area",
-    year: "",
-    artist: "BAMP",
-  },
-  {
-    src: "/images/murals/activism-blmstreetmural.jpg",
-    alt: "BLM Street Mural",
-    title: "BLM Street Mural",
     category: "Activism",
     location: "Bay Area",
     year: "",
@@ -706,6 +661,9 @@ const artworks = [
   },
 ];
 
+const INITIAL_COUNT = 12;
+const LOAD_MORE_COUNT = 12;
+
 const categories = ["All", ...new Set(artworks.map(art => art.category))];
 
 interface GalleryImageProps {
@@ -784,9 +742,9 @@ interface GallerySectionProps {
   categories: string[];
 }
 
-const GallerySection = ({ 
-  artworks, 
-  selectedImage, 
+const GallerySection = ({
+  artworks,
+  selectedImage,
   setSelectedImage,
   activeCategory,
   setActiveCategory,
@@ -794,6 +752,14 @@ const GallerySection = ({
 }: GallerySectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+
+  useEffect(() => {
+    setVisibleCount(INITIAL_COUNT);
+  }, [artworks]);
+
+  const visibleArtworks = artworks.slice(0, visibleCount);
+  const hasMore = visibleCount < artworks.length;
 
   return (
     <section ref={ref} className="py-24 bg-background">
@@ -826,14 +792,14 @@ const GallerySection = ({
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <AnimatePresence mode="popLayout">
-            {artworks.map((artwork, index) => (
+            {visibleArtworks.map((artwork, index) => (
               <motion.div
                 key={artwork.src}
                 layout
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.4, delay: (index % LOAD_MORE_COUNT) * 0.05 }}
                 className={`relative group cursor-pointer overflow-hidden rounded-2xl ${
                   index % 5 === 0 ? "md:col-span-2 md:row-span-2" : ""
                 }`}
@@ -869,6 +835,27 @@ const GallerySection = ({
               No artworks found in this category.
             </p>
           </div>
+        )}
+
+        {/* Load More */}
+        {hasMore && (
+          <motion.div
+            className="flex flex-col items-center gap-2 mt-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <p className="text-sm text-muted-foreground">
+              Showing {visibleCount} of {artworks.length}
+            </p>
+            <Button
+              onClick={() => setVisibleCount(v => v + LOAD_MORE_COUNT)}
+              variant="outline"
+              className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground px-10 py-5"
+            >
+              Load More
+            </Button>
+          </motion.div>
         )}
       </div>
 
@@ -915,10 +902,12 @@ const GallerySection = ({
                     <MapPin className="w-4 h-4 text-primary" />
                     {selectedImage.location}
                   </p>
-                  <p className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-primary" />
-                    {selectedImage.year}
-                  </p>
+                  {selectedImage.year && (
+                    <p className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      {selectedImage.year}
+                    </p>
+                  )}
                   <p className="flex items-center gap-2">
                     <User className="w-4 h-4 text-primary" />
                     {selectedImage.artist}

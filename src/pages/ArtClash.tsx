@@ -30,6 +30,14 @@ const pastEvents = [
     image: "/images/murals/IMG_2493.jpeg",
     description: "Artists from across the Bay Area competed in this exciting live art competition.",
   },
+  {
+    id: 4,
+    title: "Art Clash 2021",
+    winner: "BAMP Collective",
+    location: "East Oakland",
+    image: "/images/murals/photo-jun-19-2021.jpg",
+    description: "A landmark event celebrating community art and the artists who make it happen.",
+  },
 ];
 
 const featuredArtists = [

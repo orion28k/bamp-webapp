@@ -14,7 +14,7 @@ const navLinks = [
       { label: "Our Services", href: "/services" },
       // { label: "BAMP Camp", href: "/bamp-camp" },
       { label: "Art + Solar Kenya 2024", href: "/kenya" },
-      // { label: "Art Clash 2025 [WIP]", href: "/art-clash" },
+      // { label: "Art Clash 2025", href: "/art-clash" },
       { label: "Join the Team", href: "/join-the-team" },
     ]
   },
@@ -48,12 +48,13 @@ export const Header = () => {
   };
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-2" 
-          : "bg-transparent py-4"
+        scrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm pb-2"
+          : "bg-transparent pb-4"
       }`}
+      style={{ paddingTop: `calc(env(safe-area-inset-top) + ${scrolled ? "0.5rem" : "1rem"})` }}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
