@@ -19,15 +19,10 @@ export const Footer = () => {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("https://www.thebamp.org/api/contact", {
+      const res = await fetch("https://www.thebamp.org/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: "Newsletter Subscriber",
-          email,
-          subject: "New Newsletter Subscriber",
-          message: `New newsletter subscriber: ${email}`,
-        }),
+        body: JSON.stringify({ email }),
       });
       if (!res.ok) throw new Error("Failed");
       setSubscribed(true);
