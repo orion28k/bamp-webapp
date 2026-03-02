@@ -44,7 +44,7 @@ const ContactSection = () => {
     setError("");
 
     try {
-      const res = await fetch("https://www.thebamp.org/api/contact", {
+      const res = await fetch("https://thebamp.org/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
