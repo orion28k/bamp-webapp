@@ -11,7 +11,7 @@ const Kenya = () => {
       <PageHero
         title="Art + Solar Kenya"
         subtitle="International Initiative"
-        description="In 2024 ten Bay Area BIPOC Artists traveled to Africa for a cultural exchange, painting murals and installing solar panels."
+        description="Launched in 2024, Art + Solar Kenya is an ongoing initiative that brings Bay Area BIPOC artists into global cultural exchange while supporting rural schools through mural installations and solar energy partnerships."
         backgroundImage="/images/kenya/hero-kenya.jpg"
         breadcrumbs={[{ label: "Kenya 2024", href: "/kenya" }]}
       />
@@ -46,14 +46,10 @@ const MissionSection = () => {
               <span className="text-primary"> Kenya 2024</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              The Bay Area Mural Program partnered with GivePower for an incredible journey
-              to Kenya in October 2024. Ten Bay Area BIPOC artists traveled to Africa for
-              a cultural exchange, painting a mural and installing solar panels at a rural school.
+              In October 2024, BAMP partnered with GivePower to send ten Bay Area BIPOC artists to Kenya — painting a large-scale mural and installing solar panels at a rural school. The result: a community transformed, artists with global perspective, and a model for international public art philanthropy.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              This initiative combines the power of art and sustainable energy to make a lasting
-              impact on communities while providing our artists with life-changing experiences
-              and global perspectives.
+              Art + Solar Kenya is an ongoing initiative. We are actively building toward the next expedition, combining professional mural production with clean energy infrastructure to create lasting impact in underserved communities.
             </p>
 
             <div className="flex flex-wrap gap-4">

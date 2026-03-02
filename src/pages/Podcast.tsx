@@ -71,11 +71,10 @@ const IntroSection = () => {
           className="text-center mb-12"
         >
           <span className="text-primary font-semibold uppercase tracking-widest text-sm mb-4 block">
-            New Addition to BAMP
+            Limited Series
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Tune In to
-            <span className="text-primary"> Urban Artist Talk</span>
+            Urban Artist Talk
           </h2>
         </motion.div>
 
@@ -115,13 +114,10 @@ const IntroSection = () => {
           className="max-w-3xl mx-auto text-center mt-10"
         >
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            Urban Artist Talk is the go-to podcast for exclusive interviews with top professionals
-            and masters of their craft. We dive deep into navigating creative landscapes, staying
-            relevant amid AI influence, and thriving in tech-driven industries.
+            Urban Artist Talk is a limited series of in-depth conversations with Bay Area artists, muralists, and creative professionals — covering craft, career, community, and the realities of working in public art.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            New episodes release every Friday on YouTube. Join us as we sit down
-            with the Bay Area's most impactful artists and creative professionals.
+            Episodes feature guests including Rachel Wolfe, Timothy B., Oni Jahmora, and others. Browse the archive and watch on YouTube.
           </p>
           <a
             href="https://www.youtube.com/watch?v=qk8BPvo_Vcw"

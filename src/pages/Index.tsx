@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Play } from "lucide-react";
+import { ArrowRight, Play, Paintbrush, Building2, Heart, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Hero Section
@@ -43,9 +43,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mb-10 leading-relaxed"
           >
-            A collective of artists dedicated to transforming public spaces with meaningful 
-            art creations through community engagement. We bring awareness to community 
-            issues through the power of mural arts.
+            The Bay Area Mural Program is an award-winning nonprofit public art organization delivering large-scale murals for communities, schools, and global brands including the NBA, Golden State Warriors, Valkyries, Jordan Brand, Rakuten, Amazon, and YMCA.
           </motion.p>
 
           <motion.div
@@ -55,24 +53,16 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link to="/gallery">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-full text-lg group"
               >
                 View Our Work
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/bamp-camp">
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 py-6 rounded-full text-lg"
-              >
-                About BAMP Camp
-              </Button>
-            </Link>
           </motion.div>
+
         </div>
       </div>
 
@@ -159,8 +149,8 @@ const AboutSection = () => {
       link: "/gallery",
     },
     {
-      title: "Raising Awareness",
-      description: "We take pride in establishing benchmarks within our communities to effectively bring awareness to community issues via mural arts.",
+      title: "Public Art at Scale",
+      description: "From school corridors to corporate installations, BAMP delivers professional large-scale mural production insured, licensed, and experienced in project management from concept to completion.",
       image: "/images/murals/art-as-a-lifelong-path.png",
       link: "/services",
     },
@@ -181,13 +171,11 @@ const AboutSection = () => {
             About BAMP
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Transforming Spaces,
-            <span className="text-primary"> Empowering Communities</span>
+            The Bay Area's Leading
+            <span className="text-primary"> Public Art Organization</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            The Bay Area Mural Program is a collective of artists dedicated to transforming 
-            public spaces with meaningful art creations through community engagement. 
-            Our work goes beyond beautification. It gives voices to local communities.
+            Since our founding, BAMP has completed over 100 murals across the Bay Area, partnering with organizations such as the Golden State Warriors, Rakuten, and YMCA while remaining rooted in neighborhood collaboration. We collaborate with local leaders, schools, and national brands to create murals that reflect the identity and priorities of each project.
           </p>
         </motion.div>
 
@@ -386,8 +374,7 @@ const FeaturedWork = () => {
             Featured Artwork
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Explore our collection of murals that have transformed communities 
-            across the Bay Area, each telling a unique story.
+            Explore a selection of BAMP's public art projects across Oakland and the greater Bay Area, from neighborhood schools to NBA All-Star installations.
           </p>
         </motion.div>
 
@@ -494,6 +481,106 @@ const Partners = () => {
   );
 };
 
+// BAMP Camp Section
+const BampCampSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const highlights = [
+    { label: "Ages", value: "5 – 13" },
+    { label: "Dates", value: "June 7 – July 3" },
+    { label: "Hours", value: "9 AM – 1 PM" },
+    { label: "Days", value: "Mon – Fri" },
+  ];
+
+  return (
+    <section ref={ref} className="py-14 lg:py-20 relative overflow-hidden bg-bamp-gold/40">
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{
+        backgroundImage: "radial-gradient(circle at 2px 2px, #000 1px, transparent 0)",
+        backgroundSize: "28px 28px",
+      }} />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text side */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-bamp-charcoal/60 font-semibold uppercase tracking-widest text-sm mb-4 block">
+              Summer 2026
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+              BAMP Camp
+              <span className="block text-bamp-charcoal">Is Back</span>
+            </h2>
+            <p className="text-bamp-charcoal/70 text-lg leading-relaxed mb-8">
+              A four-week hands-on program where youth ages 5–13 create real public art, explore Oakland's culture, and develop their artistic voice alongside professional muralists. Space is limited.
+            </p>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+              {highlights.map((h, i) => (
+                <motion.div
+                  key={h.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
+                  className="rounded-xl px-4 py-4 text-center border border-primary/20"
+                  style={{ backgroundColor: "rgba(180,30,30,0.08)" }}
+                >
+                  <div className="font-accent text-xl text-primary leading-none mb-1">{h.value}</div>
+                  <div className="text-bamp-charcoal/55 text-xs uppercase tracking-wider font-medium">{h.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <Link to="/bamp-camp">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 rounded-full text-lg group"
+                >
+                  About BAMP Camp
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Image side */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-2xl">
+              <img
+                src="/images/murals/schools-achieve-academy.jpeg"
+                alt="Youth creating murals at BAMP Camp"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            {/* Floating badge */}
+            <div className="absolute -bottom-5 -left-5 bg-primary rounded-2xl px-6 py-5 shadow-2xl">
+              <p className="font-accent text-3xl text-white leading-none">4</p>
+              <p className="text-white/70 text-xs uppercase tracking-wider mt-1">Weeks</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // CTA Section
 const CTASection = () => {
   const ref = useRef(null);
@@ -517,34 +604,109 @@ const CTASection = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
-            Ready to Transform Your Space?
+            Commission a Mural
           </h2>
           <p className="text-primary-foreground/80 text-lg md:text-xl mb-10">
-            Whether you're looking to commission a mural, partner with us on a community project, 
-            or support our mission, we'd love to hear from you.
+            BAMP is insured, licensed, and experienced in large-scale mural project management. Whether you're a brand, school, or municipality — let's build something together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button 
-                size="lg" 
+            <Link to="/services">
+              <Button
+                size="lg"
                 className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-6 rounded-full text-lg group"
               >
-                Get In Touch
+                Start a Project
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/donate">
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 rounded-full text-lg"
-              >
-                <Heart className="mr-2" />
-                Support Our Mission
               </Button>
             </Link>
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Who It's For Section
+const WhoItsFor = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const pathways = [
+    {
+      icon: Paintbrush,
+      title: "Commission a Mural",
+      description: "Work with BAMP's professional team to design and install a large-scale mural for your space.",
+      cta: "Start a Project",
+      href: "/services",
+    },
+    {
+      icon: Building2,
+      title: "Partner With Us",
+      description: "Corporate, institutional, and brand partnerships that create real community impact.",
+      cta: "Partner With Us",
+      href: "/contact",
+    },
+    {
+      icon: Heart,
+      title: "Support Our Work",
+      description: "Fuel youth programs, school murals, and community installations through your donation.",
+      cta: "Donate",
+      href: "/donate",
+    },
+    {
+      icon: Users,
+      title: "Join as an Artist",
+      description: "BAMP works with artists, organizers, and educators ready to produce real public projects.",
+      cta: "Join the Team",
+      href: "/join-the-team",
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-24 lg:py-32 bg-muted">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="text-primary font-semibold uppercase tracking-widest text-sm mb-4 block">
+            Get Involved
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+            What Brings You Here?
+          </h2>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {pathways.map((path, index) => (
+            <motion.div
+              key={path.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Link to={path.href} className="group block h-full">
+                <div className="bg-card rounded-2xl p-8 h-full flex flex-col shadow-sm hover:shadow-lg transition-shadow duration-300 border border-border hover:border-primary/30">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                    <path.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                    {path.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-6">
+                    {path.description}
+                  </p>
+                  <span className="inline-flex items-center text-primary font-semibold text-sm group-hover:gap-2 transition-all">
+                    {path.cta}
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -557,8 +719,10 @@ const Index = () => {
       <Hero />
       <AboutSection />
       <Partners />
+      <BampCampSection />
       <FeaturedWork />
       <ImpactStats />
+      <WhoItsFor />
       <YouTubeVideosSection />
       <CTASection />
     </>

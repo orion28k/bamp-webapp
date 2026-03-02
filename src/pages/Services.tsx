@@ -46,9 +46,9 @@ const ServicesGrid = () => {
     },
     {
       icon: Building2,
-      title: "Commercial Art",
-      description: "Transform your business space with professional mural installations that captivate customers and enhance your brand identity.",
-      features: ["Brand integration", "Large-scale installations", "Indoor & outdoor options", "Quick turnaround"],
+      title: "Indoor Installation",
+      description: "Transform your interior space with custom murals and vinyl installations that elevate your environment and reflect your brand identity.",
+      features: ["Vinyl installation", "Custom mural design", "Brand integration", "Commercial & residential"],
       image: "/images/murals/mural-screenshot-3.png",
       comingSoon: false,
     },

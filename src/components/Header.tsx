@@ -6,20 +6,25 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { 
-    label: "Programs", 
+  {
+    label: "About Us",
+    href: "#",
+    submenu: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Team", href: "/ourteam" },
+      { label: "Join the Team", href: "/join-the-team" },
+    ],
+  },
+  {
+    label: "Programs",
     href: "#",
     submenu: [
       { label: "Our Services", href: "/services" },
-      // { label: "BAMP Camp", href: "/bamp-camp" },
-      { label: "Art + Solar Kenya 2024", href: "/kenya" },
-      // { label: "Art Clash 2025", href: "/art-clash" },
-      { label: "Join the Team", href: "/join-the-team" },
+      { label: "BAMP Camp", href: "/bamp-camp" },
+      { label: "Art & Solar Kenya", href: "/kenya" },
     ]
   },
   { label: "Gallery", href: "/gallery" },
-  { label: "Podcast", href: "/podcast" },
   { label: "Contact", href: "/contact" },
 ];
 

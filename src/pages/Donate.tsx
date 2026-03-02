@@ -11,7 +11,7 @@ const Donate = () => {
       <PageHero
         title="Support BAMP"
         subtitle="Make an Impact"
-        description="Your donation helps us create more murals, empower more artists, and transform more communities."
+        description="Your donation funds real public art — school murals, youth programs, community installations, and international initiatives like Art + Solar Kenya."
         backgroundImage="/images/murals/IMG_1135.jpg"
         breadcrumbs={[{ label: "Donate", href: "/donate" }]}
       />
@@ -99,10 +99,11 @@ const DonationSection = () => {
             <h2 className="font-display text-4xl font-bold text-foreground mb-4">
               Every Dollar Makes a Difference
             </h2>
-            <p className="text-muted-foreground text-lg mb-10">
-              Your generous donation directly supports our mission to transform
-              communities through the power of mural arts. BAMP is a 501(c)(3)
-              nonprofit — your donation is tax-deductible.
+            <p className="text-muted-foreground text-lg mb-6">
+              Your generous donation directly supports our mission to produce high-quality public art for communities, schools, and neighborhoods across the Bay Area.
+            </p>
+            <p className="text-muted-foreground text-sm mb-10 p-4 bg-muted rounded-xl border border-border">
+              Bay Area Mural Program is a registered 501(c)(3) nonprofit organization. All donations are fully tax-deductible. <strong className="text-foreground">EIN: 83-46667592</strong>
             </p>
 
             <div className="space-y-6">

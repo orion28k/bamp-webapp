@@ -11,7 +11,7 @@ const JoinTheTeam = () => {
       <PageHero
         title="Join Our Team"
         subtitle="Get Involved"
-        description="Are you passionate about art, community, and making a difference? Explore opportunities to grow with us and contribute your talents to transforming spaces and inspiring people."
+        description="BAMP works at the intersection of public art, youth mentorship, and large-scale mural production. If you're an artist, organizer, or educator ready to work on real public projects, we'd love to connect."
         backgroundImage="/images/murals/File_040.jpeg"
         imagePosition="center top"
         breadcrumbs={[{ label: "Join the Team", href: "/join-the-team" }]}
@@ -40,19 +40,17 @@ const IntroSection = () => {
               Be Part of Something Bigger
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Make a <span className="text-primary">Difference</span> With Us
+              Work on <span className="text-primary">Real Public Projects</span>
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Our nonprofit is always looking for creative, dedicated individuals to help
-                bring murals, mentorship, and meaningful projects to life.
+                BAMP produces large-scale murals for schools, corporations, and public spaces across the Bay Area and internationally. We're building a roster of artists, organizers, and educators who want to do meaningful work.
               </p>
               <p>
-                Whether you're an artist, organizer, or someone who simply believes in the
-                power of public art to transform communities, there's a place for you here.
+                We've worked alongside the Golden State Warriors, NBA All-Star Weekend, Jordan Brand, Rakuten, and Amazon — and we're always looking for talent ready to work at that level.
               </p>
               <p>
-                Join us in creating lasting impact through art and community engagement.
+                If you bring craft, professionalism, and community commitment, there's a place for you here.
               </p>
             </div>
           </motion.div>

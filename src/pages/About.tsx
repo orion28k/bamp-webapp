@@ -18,7 +18,9 @@ const About = () => {
       <StorySection />
       <ImpactStats />
       <MissionVision />
+      <AwardsSection />
       <TeamSection />
+      <RosterSection />
       <PartnersSection />
       <ValuesSection />
     </>
@@ -42,21 +44,18 @@ const StorySection = () => {
               Who We Are
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Transforming Walls Into <span className="text-primary">Artistic Gateways</span>
+              The Leading Bay Area
+              <span className="text-primary"> Nonprofit Public Art Organization</span>
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                The Bay Area Mural Program is a nonprofit organization of local artists
-                dedicated to facilitating and creating public art.
+                Since our founding, BAMP has completed over 100 murals across the Bay Area, partnering with organizations such as the Golden State Warriors, Rakuten, Amazon, and YMCA while remaining rooted in neighborhood collaboration.
               </p>
               <p>
-                Our vision centers on transforming bare, blighted walls into artistic gateways
-                to the community's surrounding environment.
+                We collaborate with local leaders, schools, and national brands to create murals that reflect the identity and priorities of each project.
               </p>
               <p>
-                We use collaborative processes to empower artists and communities to address
-                community issues, with a focus on setting high standards for public and
-                contemporary art.
+                BAMP is insured, licensed, and experienced in large-scale mural project management — from concept and community engagement to installation and documentation.
               </p>
             </div>
             <Link to="/join-the-team" className="inline-block mt-8">
@@ -143,13 +142,13 @@ const MissionVision = () => {
     {
       icon: Target,
       title: "Our Mission",
-      description: "To turn neglected urban spaces into vibrant artistic expressions that inspire viewers and build community connections through collaborative art creation.",
+      description: "To design and deliver high-quality public art projects that combine professional mural production with meaningful community collaboration.",
       color: "bg-primary",
     },
     {
       icon: Eye,
       title: "Our Vision",
-      description: "Transforming bare, blighted walls into artistic gateways to the community's surrounding environment through collaborative processes that empower artists and communities.",
+      description: "A Bay Area where public art is a standard part of the built environment — commissioned by leading brands, installed in schools, and rooted in the communities where it lives.",
       color: "bg-accent",
     },
     {
@@ -390,11 +389,10 @@ const ValuesSection = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-            Join Us in Making a Difference
+            Work With BAMP
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-10">
-            Whether you're an artist looking to contribute, a community seeking transformation, 
-            or a supporter who believes in our mission, there's a place for you at BAMP.
+            BAMP works at the intersection of public art, youth mentorship, and large-scale mural production. If you're an artist, organizer, or educator ready to work on real public projects, we'd love to connect.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
@@ -410,6 +408,114 @@ const ValuesSection = () => {
               </Button>
             </Link>
           </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const AwardsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const awards = [
+    {
+      title: "National Institute of Design",
+      description: "Recognized for excellence in public art and community-centered design.",
+    },
+    {
+      title: "501(c)(3) Nonprofit",
+      description: "Certified nonprofit organization — all donations are fully tax-deductible.",
+    },
+    {
+      title: "10+ Years in Public Art",
+      description: "Over a decade of delivering professional murals across the Bay Area and beyond.",
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-24 bg-background">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="text-primary font-semibold uppercase tracking-widest text-sm mb-4 block">
+            Recognition
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+            Awards & Accolades
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {awards.map((award, index) => (
+            <motion.div
+              key={award.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="text-center bg-muted rounded-2xl p-8"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Paintbrush className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-lg font-bold text-foreground mb-2">{award.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{award.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const RosterSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const roster = [
+    "Andre Jahmora", "Ashley Cousin", "Andre Davis", "Jordan Wiebe",
+    "Timothy B.", "Rachel Wolfe", "Oni Jahmora", "Tone Oliver",
+    "Zoe Boston", "Taylor Smalls", "Saman Qadir",
+  ];
+
+  return (
+    <section ref={ref} className="py-24 bg-muted">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="text-primary font-semibold uppercase tracking-widest text-sm mb-4 block">
+            Our Roster
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+            Artists & Contributors
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto"
+        >
+          {roster.map((name, index) => (
+            <motion.span
+              key={name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.4, delay: index * 0.04 }}
+              className="px-5 py-2 bg-card border border-border rounded-full text-foreground font-medium text-sm"
+            >
+              {name}
+            </motion.span>
+          ))}
         </motion.div>
       </div>
     </section>

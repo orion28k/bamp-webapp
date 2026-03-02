@@ -114,9 +114,11 @@ export const Footer = () => {
               <img src="/bamp-logo.png" alt="BAMP" className="h-14 w-auto" />
               <span className="font-display font-bold text-2xl">The Bay Area Mural Program</span>
             </Link>
-            <p className="text-secondary-foreground/70 leading-relaxed mb-6">
-              A collective of artists dedicated to transforming public spaces with meaningful 
-              art creations through community engagement.
+            <p className="text-secondary-foreground/70 leading-relaxed mb-3">
+              The Bay Area Mural Program is an award-winning nonprofit public art organization producing large-scale murals and cultural initiatives across the Bay Area and beyond.
+            </p>
+            <p className="text-secondary-foreground/50 text-xs mb-6">
+              501(c)(3) Nonprofit · EIN: 83-46667592
             </p>
             
             {/* Social Links */}

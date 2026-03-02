@@ -6,7 +6,71 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 
 const artworks = [
-  // Original artworks
+  // Flagship clients — placed first as credibility anchors
+  {
+    src: "/images/murals/sports-all-star-bamp-timothy-b-2.jpeg",
+    alt: "NBA All-Star BAMP Timothy B mural",
+    title: "NBA All-Star Weekend",
+    category: "Sports",
+    location: "San Francisco, CA",
+    year: "2022",
+    artist: "Timothy B & BAMP",
+  },
+  {
+    src: "/images/murals/sports-illuminaries-valkyries.png",
+    alt: "Golden State Valkyries mural",
+    title: "Golden State Valkyries",
+    category: "Sports",
+    location: "Bay Area, CA",
+    year: "2024",
+    artist: "BAMP",
+  },
+  {
+    src: "/images/murals/sports-stephcurry3pt.jpeg",
+    alt: "Steph Curry 3-Point Record mural",
+    title: "Steph Curry 3PT Record",
+    category: "Sports",
+    location: "YMCA, Oakland, CA",
+    year: "2021",
+    artist: "BAMP",
+  },
+  {
+    src: "/images/murals/sports-jordanshoepalace2.jpg",
+    alt: "Jordan Brand Shoe Palace mural",
+    title: "Jordan Brand × Shoe Palace",
+    category: "Sports",
+    location: "Bay Area, CA",
+    year: "2023",
+    artist: "BAMP",
+  },
+  {
+    src: "/images/murals/sports-rakuten-jane-the-bakery.jpeg",
+    alt: "Rakuten Jane the Bakery mural",
+    title: "Rakuten",
+    category: "Sports",
+    location: "San Francisco, CA",
+    year: "",
+    artist: "BAMP",
+  },
+  {
+    src: "/images/murals/sports-valkieriesunitedplayas1.jpg",
+    alt: "Valkyries United Playas mural",
+    title: "Valkyries — United Playas",
+    category: "Sports",
+    location: "Bay Area, CA",
+    year: "2024",
+    artist: "BAMP",
+  },
+  {
+    src: "/images/murals/sports-all-star-weekend-chase-center.jpg",
+    alt: "NBA All-Star Weekend Chase Center mural",
+    title: "All-Star Weekend — Chase Center",
+    category: "Sports",
+    location: "San Francisco, CA",
+    year: "2022",
+    artist: "BAMP",
+  },
+  // Community murals
   {
     src: "/images/murals/community-zoe-buena-vista.jpg",
     alt: "Buena Vista mural",
@@ -22,15 +86,6 @@ const artworks = [
     title: "Authentically Oakland",
     category: "Community",
     location: "Oakland",
-    year: "",
-    artist: "BAMP",
-  },
-  {
-    src: "/images/murals/sports-stephcurry3pt.jpeg",
-    alt: "Steph Curry 3 Point mural",
-    title: "Steph Curry 3PT",
-    category: "Sports",
-    location: "Bay Area",
     year: "",
     artist: "BAMP",
   },
@@ -532,25 +587,7 @@ const artworks = [
     year: "",
     artist: "BAMP",
   },
-  // Sports murals
-  {
-    src: "/images/murals/sports-all-star-bamp-timothy-b-2.jpeg",
-    alt: "All Star BAMP Timothy B mural",
-    title: "All Star BAMP",
-    category: "Sports",
-    location: "Bay Area",
-    year: "",
-    artist: "Timothy B",
-  },
-  {
-    src: "/images/murals/sports-all-star-weekend-chase-center.jpg",
-    alt: "All Star Weekend Chase Center mural",
-    title: "All Star Weekend Chase Center",
-    category: "Sports",
-    location: "San Francisco",
-    year: "",
-    artist: "BAMP",
-  },
+  // Sports murals (additional)
   {
     src: "/images/murals/sports-billboard.jpeg",
     alt: "Sports billboard mural",
@@ -579,27 +616,9 @@ const artworks = [
     artist: "BAMP",
   },
   {
-    src: "/images/murals/sports-valkieriesunitedplayas1.jpg",
-    alt: "Valkyries United Playas mural",
-    title: "Valkyries United Playas",
-    category: "Sports",
-    location: "Bay Area",
-    year: "",
-    artist: "BAMP",
-  },
-  {
     src: "/images/murals/sports-head-over-heels.jpg",
     alt: "Head Over Heels mural",
     title: "Head Over Heels",
-    category: "Sports",
-    location: "Bay Area",
-    year: "",
-    artist: "BAMP",
-  },
-  {
-    src: "/images/murals/sports-jordanshoepalace2.jpg",
-    alt: "Jordan Shoe Palace mural",
-    title: "Jordan Shoe Palace",
     category: "Sports",
     location: "Bay Area",
     year: "",
@@ -647,15 +666,6 @@ const artworks = [
     title: "ICA Dogpatch Court",
     category: "Sports",
     location: "San Francisco",
-    year: "",
-    artist: "BAMP",
-  },
-  {
-    src: "/images/murals/sports-rakuten-jane-the-bakery.jpeg",
-    alt: "Rakuten Jane the Bakery mural",
-    title: "Rakuten Jane the Bakery",
-    category: "Sports",
-    location: "Bay Area",
     year: "",
     artist: "BAMP",
   },
@@ -715,7 +725,7 @@ const Gallery = () => {
       <PageHero
         title="Our Gallery"
         subtitle="Portfolio"
-        description="Explore our collection of murals that have transformed communities across the Bay Area."
+        description="Explore a selection of BAMP's public art projects across Oakland and the greater Bay Area, from neighborhood schools to NBA All-Star installations."
         backgroundImage="/images/murals/IMG_0011.jpeg"
         breadcrumbs={[{ label: "Gallery", href: "/gallery" }]}
         imagePosition="center 0%"
