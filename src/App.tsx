@@ -16,6 +16,7 @@ import Kenya from "./pages/Kenya";
 import JoinTheTeam from "./pages/JoinTheTeam";
 import OurTeam from "./pages/OurTeam";
 import BampCamp from "./pages/BampCamp";
+import BampCampRegister from "./pages/BampCampRegister";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/ourteam" element={<OurTeam />} />
             <Route path="/bamp-camp" element={<BampCamp />} />
           </Route>
+          <Route path="/bamp-camp/register" element={<BampCampRegister />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

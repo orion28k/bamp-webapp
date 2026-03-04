@@ -494,10 +494,10 @@ const BampCampSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-14 lg:py-20 relative overflow-hidden bg-bamp-gold/40">
+    <section ref={ref} className="py-14 lg:py-20 relative overflow-hidden bg-primary">
       {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{
-        backgroundImage: "radial-gradient(circle at 2px 2px, #000 1px, transparent 0)",
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{
+        backgroundImage: "radial-gradient(circle at 2px 2px, #fff 1px, transparent 0)",
         backgroundSize: "28px 28px",
       }} />
 
@@ -509,14 +509,13 @@ const BampCampSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-bamp-charcoal/60 font-semibold uppercase tracking-widest text-sm mb-4 block">
+            <span className="text-white/50 font-semibold uppercase tracking-widest text-sm mb-4 block">
               Summer 2026
             </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
-              BAMP Camp
-              <span className="block text-bamp-charcoal">Is Back</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Introducing BAMP Camp
             </h2>
-            <p className="text-bamp-charcoal/70 text-lg leading-relaxed mb-8">
+            <p className="text-white/70 text-lg leading-relaxed mb-8">
               A four-week hands-on program where youth ages 5–13 create real public art, explore Oakland's culture, and develop their artistic voice alongside professional muralists. Space is limited.
             </p>
 
@@ -528,11 +527,11 @@ const BampCampSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
-                  className="rounded-xl px-4 py-4 text-center border border-primary/20"
-                  style={{ backgroundColor: "rgba(180,30,30,0.08)" }}
+                  className="rounded-xl px-4 py-4 text-center border border-white/15"
+                  style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
                 >
-                  <div className="font-accent text-xl text-primary leading-none mb-1">{h.value}</div>
-                  <div className="text-bamp-charcoal/55 text-xs uppercase tracking-wider font-medium">{h.label}</div>
+                  <div className="font-accent text-xl text-white leading-none mb-1">{h.value}</div>
+                  <div className="text-white/45 text-xs uppercase tracking-wider font-bold">{h.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -545,7 +544,7 @@ const BampCampSection = () => {
               <Link to="/bamp-camp">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 rounded-full text-lg group"
+                  className="bg-white hover:bg-white/90 text-primary font-semibold px-8 py-6 rounded-full text-lg group"
                 >
                   About BAMP Camp
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -563,7 +562,7 @@ const BampCampSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-2xl">
               <img
-                src="/images/murals/schools-achieve-academy.jpeg"
+                src="/images/murals/bamp-camp-kids-painting.webp"
                 alt="Youth creating murals at BAMP Camp"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -717,9 +716,9 @@ const Index = () => {
   return (
     <>
       <Hero />
+      <BampCampSection />
       <AboutSection />
       <Partners />
-      <BampCampSection />
       <FeaturedWork />
       <ImpactStats />
       <WhoItsFor />

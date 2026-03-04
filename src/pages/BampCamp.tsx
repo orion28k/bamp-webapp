@@ -279,7 +279,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                 <img
-                  src="/images/murals/schools-achieve-academy.jpeg"
+                  src="/images/murals/bamp-camp-kids-painting.webp"
                   alt="Youth working on murals"
                   className="w-full h-full object-cover"
                 />
