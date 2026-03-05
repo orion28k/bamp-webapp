@@ -211,7 +211,7 @@ const TeamMemberCard = ({ member, index, isInView, showInstagram = false }: Team
           href={member.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
+          className="inline-flex items-center justify-center text-black hover:text-primary transition-colors"
         >
           <Instagram className="w-5 h-5" />
         </a>
@@ -219,7 +219,7 @@ const TeamMemberCard = ({ member, index, isInView, showInstagram = false }: Team
       {member.email && !showInstagram && (
         <a
           href={`mailto:${member.email}`}
-          className="text-muted-foreground text-sm hover:text-primary transition-colors"
+          className="text-black text-sm hover:text-primary transition-colors"
         >
           {member.email}
         </a>
@@ -247,7 +247,7 @@ const LeadershipSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Executive Team
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             Our leadership team guides BAMP's vision and strategic direction.
           </p>
         </motion.div>
@@ -286,7 +286,7 @@ const ArtistsSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Creative Talent
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             The talented artists who bring murals to life and transform communities through their work.
           </p>
         </motion.div>
@@ -326,7 +326,7 @@ const BoardSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Governance & Oversight
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             Our board members provide strategic guidance and ensure BAMP fulfills its nonprofit mission.
           </p>
         </motion.div>

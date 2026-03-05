@@ -204,11 +204,11 @@ const QuickStatsBar = () => {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="flex flex-col items-center justify-center py-8 px-4 gap-1"
             >
-              <stat.icon className="w-5 h-5 text-primary-foreground/60 mb-1" />
+              <stat.icon className="w-5 h-5 text-white mb-1" />
               <span className="font-accent text-2xl md:text-3xl text-primary-foreground leading-none">
                 {stat.value}
               </span>
-              <span className="font-body text-xs font-bold tracking-widest uppercase text-primary-foreground/80">
+              <span className="font-body text-xs font-bold tracking-widest uppercase text-white">
                 {stat.label}
               </span>
             </motion.div>
@@ -240,13 +240,13 @@ const AboutSection = () => {
                 Where Youth Become
                 <span className="text-gradient block">Muralists</span>
               </h2>
-              <p className="text-white/70 text-lg leading-relaxed mb-6">
+              <p className="text-white text-lg leading-relaxed mb-6">
                 BAMP Summer Camp provides youth with access to creative education
                 through mural arts, collaborative projects, and cultural
                 storytelling, while offering families a safe and enriching
                 daytime program.
               </p>
-              <p className="text-white/60 text-base leading-relaxed">
+              <p className="text-white text-base leading-relaxed">
                 Each camper works toward a final collaborative mural, building
                 real skills alongside Oakland's working artists. Four weeks.
                 One community. Real art on real walls.
@@ -265,7 +265,7 @@ const AboutSection = () => {
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-white/70 text-sm font-body">
+                    <span className="text-white text-sm font-body">
                       {item}
                     </span>
                   </div>
@@ -286,11 +286,9 @@ const AboutSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-bamp-charcoal/40 to-transparent" />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 bg-primary rounded-2xl p-5 shadow-2xl">
-                <p className="font-accent text-3xl text-white leading-none">4</p>
-                <p className="font-body text-xs text-white/70 uppercase tracking-wider mt-1">
-                  Weeks
-                </p>
+              <div className="absolute -bottom-6 -left-6 bg-bamp-gold rounded-2xl px-5 py-4 shadow-2xl">
+                <p className="font-accent text-4xl text-bamp-charcoal leading-none">Mural Arts</p>
+                <p className="font-accent text-base text-bamp-charcoal mt-1 leading-none">for the youth</p>
               </div>
             </div>
           </FadeIn>
@@ -365,7 +363,7 @@ const ScheduleSection = () => {
                       {item.time}
                     </span>
                   </div>
-                  <p className="text-bamp-charcoal/60 text-sm leading-relaxed">
+                  <p className="text-black text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -374,7 +372,7 @@ const ScheduleSection = () => {
           </div>
 
           <FadeIn delay={0.3} className="mt-8 pl-10 md:pl-20">
-            <p className="text-bamp-charcoal/45 text-sm italic">
+            <p className="text-black text-sm italic">
               * Youth are required to bring a packed lunch.
             </p>
           </FadeIn>
@@ -405,7 +403,7 @@ const ActivitiesSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
             Outside Activities
           </h2>
-          <p className="text-white/60 max-w-xl mx-auto text-base leading-relaxed">
+          <p className="text-white max-w-xl mx-auto text-base leading-relaxed">
             Campers step outside the studio to explore Oakland's art and nature,
             from mural tours to museum visits.
           </p>
@@ -419,7 +417,7 @@ const ActivitiesSection = () => {
                 <h3 className="font-display text-base font-semibold text-white mb-1 leading-tight">
                   {activity.name}
                 </h3>
-                <p className="text-white/50 text-xs leading-relaxed">
+                <p className="text-white text-xs leading-relaxed">
                   {activity.detail}
                 </p>
               </div>
@@ -446,7 +444,7 @@ const PricingSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-bamp-charcoal mb-4">
             Tuition & Pricing
           </h2>
-          <p className="text-bamp-charcoal/60 max-w-xl mx-auto text-base">
+          <p className="text-black max-w-xl mx-auto text-base">
             All sessions include instruction, activities, and museum passes. Payment in advance.
           </p>
         </FadeIn>
@@ -470,7 +468,7 @@ const PricingSection = () => {
                 <div className="mb-6">
                   <p
                     className={`font-accent text-sm tracking-[0.25em] uppercase mb-3 ${
-                      plan.highlighted ? "text-white/70" : "text-bamp-charcoal/50"
+                      plan.highlighted ? "text-white" : "text-black"
                     }`}
                   >
                     {plan.label}
@@ -485,7 +483,7 @@ const PricingSection = () => {
                     </span>
                     <span
                       className={`font-body text-base mb-1 ${
-                        plan.highlighted ? "text-white/60" : "text-bamp-charcoal/45"
+                        plan.highlighted ? "text-white" : "text-black"
                       }`}
                     >
                       {plan.unit}
@@ -495,7 +493,7 @@ const PricingSection = () => {
 
                 <p
                   className={`text-sm leading-relaxed flex-1 ${
-                    plan.highlighted ? "text-white/80" : "text-bamp-charcoal/65"
+                    plan.highlighted ? "text-white" : "text-black"
                   }`}
                 >
                   {plan.description}
@@ -521,23 +519,23 @@ const PricingSection = () => {
           <FadeIn delay={0.2}>
             <div className="relative rounded-2xl p-7 h-full flex flex-col border bg-bamp-gold/15 border-bamp-gold/40 shadow-sm">
               <div className="mb-6">
-                <p className="font-accent text-sm tracking-[0.25em] uppercase mb-3 text-bamp-charcoal/50">
+                <p className="font-accent text-sm tracking-[0.25em] uppercase mb-3 text-black">
                   Family Discount
                 </p>
                 <div className="flex items-end gap-1">
                   <span className="font-display text-5xl font-bold leading-none text-bamp-charcoal">
                     25%
                   </span>
-                  <span className="font-body text-base mb-1 text-bamp-charcoal/45">
+                  <span className="font-body text-base mb-1 text-black">
                     off
                   </span>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed flex-1 text-bamp-charcoal/65">
+              <p className="text-sm leading-relaxed flex-1 text-black">
                 Register more than one child and receive 25% off each additional enrollment.
               </p>
-              <div className="mt-6 flex items-center gap-2 text-bamp-charcoal/50 text-xs font-body">
-                <Star className="w-4 h-4 text-bamp-charcoal/40 flex-shrink-0" />
+              <div className="mt-6 flex items-center gap-2 text-black text-xs font-body">
+                <Star className="w-4 h-4 text-black flex-shrink-0" />
                 Applied automatically at checkout
               </div>
             </div>
@@ -571,13 +569,13 @@ const RegisterSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <span className="font-accent text-sm tracking-[0.3em] text-white/60 uppercase block mb-4">
+          <span className="font-accent text-sm tracking-[0.3em] text-white uppercase block mb-4">
             June 7 – July 3, 2026
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Ready to Register?
           </h2>
-          <p className="text-white/80 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-white text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
             Space is limited. Register below to secure your child's spot in Summer BAMP Camp 2026.
           </p>
 
@@ -603,11 +601,11 @@ const RegisterSection = () => {
             </a>
           </div>
 
-          <p className="text-white/50 text-sm mt-8">
+          <p className="text-white text-sm mt-8">
             Interested in teaching or mentoring?{" "}
             <a
               href="mailto:camp@thebamp.org"
-              className="text-white underline underline-offset-4 hover:text-white/80 transition-colors"
+              className="text-white underline underline-offset-4 hover:text-white transition-colors"
             >
               Let us know
             </a>

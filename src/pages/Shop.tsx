@@ -150,7 +150,7 @@ const ShopSection = ({
           transition={{ duration: 0.6 }}
           className="flex flex-wrap items-center justify-center gap-3 mb-12"
         >
-          <Filter className="w-5 h-5 text-muted-foreground" />
+          <Filter className="w-5 h-5 text-black" />
           {categories.map((category) => (
             <Button
               key={category}
@@ -214,7 +214,7 @@ const ShopSection = ({
                 <div className="flex items-center gap-1 mb-2">
                   <Star className="w-4 h-4 text-accent fill-accent" />
                   <span className="text-sm font-medium">{product.rating}</span>
-                  <span className="text-muted-foreground text-sm">({product.reviews} reviews)</span>
+                  <span className="text-black text-sm">({product.reviews} reviews)</span>
                 </div>
                 <h3 className="font-display text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                   {product.name}
@@ -226,7 +226,7 @@ const ShopSection = ({
                     {product.colors.map((color) => (
                       <span
                         key={color}
-                        className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded"
+                        className="text-xs text-black bg-muted px-2 py-1 rounded"
                       >
                         {color}
                       </span>
@@ -245,7 +245,7 @@ const ShopSection = ({
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 text-center bg-muted rounded-2xl p-8"
         >
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-black text-lg max-w-2xl mx-auto">
             <strong className="text-foreground">100% of proceeds</strong> from our shop go directly to supporting 
             BAMP's community mural programs, youth education initiatives, and artist stipends.
           </p>

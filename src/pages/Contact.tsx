@@ -127,7 +127,7 @@ const ContactSection = () => {
                       {item.title}
                     </h3>
                     {item.lines.map((line, i) => (
-                      <p key={i} className="text-muted-foreground text-sm">{line}</p>
+                      <p key={i} className="text-black text-sm">{line}</p>
                     ))}
                   </div>
                 </div>
@@ -152,7 +152,7 @@ const ContactSection = () => {
                     className="w-10 h-10 bg-muted hover:bg-primary rounded-full flex items-center justify-center transition-colors group"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
+                    <social.icon className="w-5 h-5 text-black group-hover:text-primary-foreground transition-colors" />
                   </a>
                 ))}
               </div>
@@ -175,7 +175,7 @@ const ContactSection = () => {
                   <h3 className="font-display text-2xl font-bold text-foreground mb-2">
                     Message Sent!
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-black">
                     Thank you for reaching out. We'll get back to you within 24-48 hours.
                   </p>
                 </div>
@@ -199,7 +199,7 @@ const ContactSection = () => {
                             className={`px-4 py-2 rounded-full text-sm transition-colors ${
                               formData.type === type.value
                                 ? "bg-primary text-primary-foreground"
-                                : "bg-muted text-muted-foreground hover:bg-muted/80"
+                                : "bg-muted text-black hover:bg-muted/80"
                             }`}
                           >
                             {type.label}

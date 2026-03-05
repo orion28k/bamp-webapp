@@ -42,7 +42,7 @@ const IntroSection = () => {
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
               Work on <span className="text-primary">Real Public Projects</span>
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-black leading-relaxed">
               <p>
                 BAMP produces large-scale murals for schools, corporations, and public spaces across the Bay Area and internationally. We're building a roster of artists, organizers, and educators who want to do meaningful work.
               </p>
@@ -68,17 +68,17 @@ const IntroSection = () => {
               <div className="bg-muted rounded-2xl p-6">
                 <HandHeart className="w-8 h-8 text-primary mx-auto mb-2" />
                 <div className="font-accent text-2xl font-bold text-foreground">1,100+</div>
-                <div className="text-sm text-muted-foreground">Volunteers</div>
+                <div className="text-sm text-black">Volunteers</div>
               </div>
               <div className="bg-muted rounded-2xl p-6">
                 <Users className="w-8 h-8 text-primary mx-auto mb-2" />
                 <div className="font-accent text-2xl font-bold text-foreground">90</div>
-                <div className="text-sm text-muted-foreground">Artists</div>
+                <div className="text-sm text-black">Artists</div>
               </div>
               <div className="bg-muted rounded-2xl p-6">
                 <Heart className="w-8 h-8 text-primary mx-auto mb-2" />
                 <div className="font-accent text-2xl font-bold text-foreground">30</div>
-                <div className="text-sm text-muted-foreground">Communities</div>
+                <div className="text-sm text-black">Communities</div>
               </div>
             </div>
           </motion.div>
@@ -125,7 +125,7 @@ const VolunteerSection = () => {
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
               Volunteer
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
+            <div className="space-y-4 text-black leading-relaxed mb-8">
               <p>
                 Join us in bringing vibrant and inspiring art, meaningful mentorship, and
                 impactful community projects to life.
@@ -169,7 +169,7 @@ const CTASection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Ready to Make an Impact?
           </h2>
-          <p className="text-muted-foreground text-lg mb-10">
+          <p className="text-black text-lg mb-10">
             Whether you want to volunteer, apply for a position, or simply learn more
             about how you can contribute, we'd love to hear from you.
           </p>

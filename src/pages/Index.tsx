@@ -41,7 +41,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-white max-w-2xl mb-10 leading-relaxed"
           >
             The Bay Area Mural Program is an award-winning nonprofit public art organization delivering large-scale murals for communities, schools, and global brands including the NBA, Golden State Warriors, Valkyries, Jordan Brand, Rakuten, Amazon, and YMCA.
           </motion.p>
@@ -118,7 +118,7 @@ const ImpactStats = () => {
                 <div className="font-accent text-5xl md:text-6xl lg:text-7xl text-primary-foreground mb-2">
                   {stat.number}
                 </div>
-                <div className="text-primary-foreground/80 font-medium">
+                <div className="text-white font-medium">
                   {stat.label}
                 </div>
               </motion.div>
@@ -174,7 +174,7 @@ const AboutSection = () => {
             The Bay Area's Leading
             <span className="text-primary"> Public Art Organization</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-black text-lg leading-relaxed">
             Since our founding, BAMP has completed over 100 murals across the Bay Area, partnering with organizations such as the Golden State Warriors, Rakuten, and YMCA while remaining rooted in neighborhood collaboration. We collaborate with local leaders, schools, and national brands to create murals that reflect the identity and priorities of each project.
           </p>
         </motion.div>
@@ -197,7 +197,7 @@ const AboutSection = () => {
                 <h3 className="font-display text-2xl font-bold text-foreground mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-black leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -270,7 +270,7 @@ const YouTubeVideosSection = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             From Our YouTube
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-black text-lg leading-relaxed">
             Dive deeper into our work, meet our artists, and see the impact
             of community-driven art through our video content.
           </p>
@@ -304,7 +304,7 @@ const YouTubeVideosSection = () => {
               <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {video.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-black text-sm leading-relaxed">
                 {video.description}
               </p>
             </motion.a>
@@ -373,7 +373,7 @@ const FeaturedWork = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Featured Artwork
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-black text-lg leading-relaxed">
             Explore a selection of BAMP's public art projects across Oakland and the greater Bay Area, from neighborhood schools to NBA All-Star installations.
           </p>
         </motion.div>
@@ -509,13 +509,13 @@ const BampCampSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-white/50 font-semibold uppercase tracking-widest text-sm mb-4 block">
+            <span className="text-white font-semibold uppercase tracking-widest text-sm mb-4 block">
               Summer 2026
             </span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Introducing BAMP Camp
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed mb-8">
+            <p className="text-white text-lg leading-relaxed mb-8">
               A four-week hands-on program where youth ages 5–13 create real public art, explore Oakland's culture, and develop their artistic voice alongside professional muralists. Space is limited.
             </p>
 
@@ -527,11 +527,10 @@ const BampCampSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
-                  className="rounded-xl px-4 py-4 text-center border border-white/15"
-                  style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
+                  className="rounded-xl px-4 py-4 text-center border border-white/15 bg-white"
                 >
-                  <div className="font-accent text-xl text-white leading-none mb-1">{h.value}</div>
-                  <div className="text-white/45 text-xs uppercase tracking-wider font-bold">{h.label}</div>
+                  <div className="font-accent text-xl text-primary leading-none mb-1">{h.value}</div>
+                  <div className="text-black text-xs uppercase tracking-wider font-bold">{h.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -569,9 +568,9 @@ const BampCampSection = () => {
               />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-5 -left-5 bg-primary rounded-2xl px-6 py-5 shadow-2xl">
-              <p className="font-accent text-3xl text-white leading-none">4</p>
-              <p className="text-white/70 text-xs uppercase tracking-wider mt-1">Weeks</p>
+            <div className="absolute -bottom-5 -left-5 bg-bamp-gold rounded-2xl px-5 py-4 shadow-2xl">
+              <p className="font-accent text-4xl text-bamp-charcoal leading-none">Mural Arts</p>
+              <p className="font-accent text-base text-bamp-charcoal mt-1 leading-none">for the youth</p>
             </div>
           </motion.div>
         </div>
@@ -605,7 +604,7 @@ const CTASection = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
             Commission a Mural
           </h2>
-          <p className="text-primary-foreground/80 text-lg md:text-xl mb-10">
+          <p className="text-white text-lg md:text-xl mb-10">
             BAMP is insured, licensed, and experienced in large-scale mural project management. Whether you're a brand, school, or municipality — let's build something together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -694,7 +693,7 @@ const WhoItsFor = () => {
                   <h3 className="font-display text-xl font-bold text-foreground mb-3">
                     {path.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-6">
+                  <p className="text-black text-sm leading-relaxed flex-1 mb-6">
                     {path.description}
                   </p>
                   <span className="inline-flex items-center text-primary font-semibold text-sm group-hover:gap-2 transition-all">

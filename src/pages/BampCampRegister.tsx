@@ -26,7 +26,7 @@ const BampCampRegister = () => {
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-bamp-red">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors"
+          className="flex items-center gap-2 text-sm font-semibold text-white hover:text-white/70 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Go Back
@@ -36,7 +36,7 @@ const BampCampRegister = () => {
       {/* Form fills the rest of the page */}
       <main className="flex-1 pt-16">
         {!loaded && (
-          <div className="flex items-center justify-center h-64 text-bamp-charcoal/50 text-sm font-body">
+          <div className="flex items-center justify-center h-64 text-black text-sm font-body">
             Please wait…
           </div>
         )}

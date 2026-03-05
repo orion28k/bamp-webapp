@@ -110,7 +110,7 @@ const AboutSection = () => {
             Live Art. Real Competition.
             <span className="text-primary"> Unforgettable Experience.</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-black text-lg leading-relaxed">
             Art Clash brings together the Bay Area's most talented artists for an electrifying
             live painting competition. It's where creativity meets community, featuring live music,
             pop-up galleries, auctions, and more.
@@ -132,7 +132,7 @@ const AboutSection = () => {
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-black leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
@@ -293,11 +293,11 @@ const PastEvents = ({ events }: { events: typeof pastEvents }) => {
               <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {event.title}
               </h3>
-              <p className="text-muted-foreground text-sm flex items-center gap-2 mb-2">
+              <p className="text-black text-sm flex items-center gap-2 mb-2">
                 <MapPin className="w-4 h-4" />
                 {event.location}
               </p>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-black text-sm">
                 {event.description}
               </p>
             </motion.div>
@@ -332,7 +332,7 @@ const CTASection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
             Want to Participate in Art Clash?
           </h2>
-          <p className="text-primary-foreground/80 text-lg md:text-xl mb-10">
+          <p className="text-white text-lg md:text-xl mb-10">
             Whether you're an artist looking to compete, a sponsor, or just want to attend
             the next event, we'd love to hear from you.
           </p>

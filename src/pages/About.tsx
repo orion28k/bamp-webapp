@@ -47,7 +47,7 @@ const StorySection = () => {
               The Leading Bay Area
               <span className="text-primary"> Nonprofit Public Art Organization</span>
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-black leading-relaxed">
               <p>
                 Since our founding, BAMP has completed over 100 murals across the Bay Area, partnering with organizations such as the Golden State Warriors, Rakuten, Amazon, and YMCA while remaining rooted in neighborhood collaboration.
               </p>
@@ -119,11 +119,11 @@ const ImpactStats = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center"
             >
-              <stat.icon className="w-10 h-10 text-primary-foreground/80 mx-auto mb-4" />
+              <stat.icon className="w-10 h-10 text-white mx-auto mb-4" />
               <div className="font-accent text-5xl md:text-6xl lg:text-7xl text-primary-foreground mb-2">
                 {stat.value}
               </div>
-              <div className="text-primary-foreground/80 font-medium">
+              <div className="text-white font-medium">
                 {stat.label}
               </div>
             </motion.div>
@@ -191,7 +191,7 @@ const MissionVision = () => {
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">
                 {card.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-black leading-relaxed">
                 {card.description}
               </p>
             </motion.div>
@@ -263,7 +263,7 @@ const TeamSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Meet the Artists & Leaders
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             Our diverse team brings together talented artists, community organizers, 
             and dedicated staff who share a passion for transforming spaces through art.
           </p>
@@ -292,7 +292,7 @@ const TeamSection = () => {
               <p className="text-primary font-medium">{member.role}</p>
               <a
                 href={`mailto:${member.email}`}
-                className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                className="text-black text-sm hover:text-primary transition-colors"
               >
                 {member.email}
               </a>
@@ -348,7 +348,7 @@ const PartnersSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Collaborating for Impact
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             We're proud to work alongside organizations that share our commitment to community transformation.
           </p>
         </motion.div>
@@ -391,7 +391,7 @@ const ValuesSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
             Work With BAMP
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-10">
+          <p className="text-white text-lg mb-10">
             BAMP works at the intersection of public art, youth mentorship, and large-scale mural production. If you're an artist, organizer, or educator ready to work on real public projects, we'd love to connect.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -463,7 +463,7 @@ const AwardsSection = () => {
                 <Paintbrush className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-lg font-bold text-foreground mb-2">{award.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{award.description}</p>
+              <p className="text-black text-sm leading-relaxed">{award.description}</p>
             </motion.div>
           ))}
         </div>

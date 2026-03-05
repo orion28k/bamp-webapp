@@ -99,10 +99,10 @@ const DonationSection = () => {
             <h2 className="font-display text-4xl font-bold text-foreground mb-4">
               Every Dollar Makes a Difference
             </h2>
-            <p className="text-muted-foreground text-lg mb-6">
+            <p className="text-black text-lg mb-6">
               Your generous donation directly supports our mission to produce high-quality public art for communities, schools, and neighborhoods across the Bay Area.
             </p>
-            <p className="text-muted-foreground text-sm mb-10 p-4 bg-muted rounded-xl border border-border">
+            <p className="text-black text-sm mb-10 p-4 bg-muted rounded-xl border border-border">
               Bay Area Mural Program is a registered 501(c)(3) nonprofit organization. All donations are fully tax-deductible. <strong className="text-foreground">EIN: 83-46667592</strong>
             </p>
 
@@ -120,7 +120,7 @@ const DonationSection = () => {
                   </div>
                   <div>
                     <span className="text-primary font-bold text-lg">{item.amount}</span>
-                    <p className="text-muted-foreground text-sm">{item.description}</p>
+                    <p className="text-black text-sm">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -173,7 +173,7 @@ const OtherWaysSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-white/80 font-semibold uppercase tracking-widest text-sm mb-4 block">
+          <span className="text-white font-semibold uppercase tracking-widest text-sm mb-4 block">
             More Ways to Help
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
@@ -193,7 +193,7 @@ const OtherWaysSection = () => {
               <h3 className="font-display text-xl font-bold text-white mb-3">
                 {way.title}
               </h3>
-              <p className="text-white/80 mb-6 text-sm">
+              <p className="text-white mb-6 text-sm">
                 {way.description}
               </p>
               <Link to={way.link}>

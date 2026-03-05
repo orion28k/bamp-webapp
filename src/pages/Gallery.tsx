@@ -781,7 +781,7 @@ const GallerySection = ({
           transition={{ duration: 0.6 }}
           className="flex flex-wrap items-center justify-center gap-3 mb-12"
         >
-          <Filter className="w-5 h-5 text-muted-foreground" />
+          <Filter className="w-5 h-5 text-black" />
           {categories.map((category) => (
             <Button
               key={category}
@@ -829,7 +829,7 @@ const GallerySection = ({
                   <h3 className="font-display text-lg font-bold text-white">
                     {artwork.title}
                   </h3>
-                  <p className="text-white/70 text-sm flex items-center gap-1">
+                  <p className="text-white text-sm flex items-center gap-1">
                     <MapPin className="w-3 h-3" /> {artwork.location}
                   </p>
                 </div>
@@ -841,7 +841,7 @@ const GallerySection = ({
         {/* Empty State */}
         {artworks.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-muted-foreground text-lg">
+            <p className="text-black text-lg">
               No artworks found in this category.
             </p>
           </div>
@@ -855,7 +855,7 @@ const GallerySection = ({
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-black">
               Showing {visibleCount} of {artworks.length}
             </p>
             <Button
@@ -880,7 +880,7 @@ const GallerySection = ({
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-colors z-10"
+              className="absolute top-6 right-6 p-2 text-white hover:text-white transition-colors z-10"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
@@ -907,7 +907,7 @@ const GallerySection = ({
                 <h2 className="font-display text-3xl font-bold mb-4">
                   {selectedImage.title}
                 </h2>
-                <div className="space-y-3 text-white/70">
+                <div className="space-y-3 text-white">
                   <p className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-primary" />
                     {selectedImage.location}

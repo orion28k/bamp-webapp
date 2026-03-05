@@ -113,10 +113,10 @@ const IntroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-3xl mx-auto text-center mt-10"
         >
-          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+          <p className="text-black text-lg leading-relaxed mb-6">
             Urban Artist Talk is a limited series of in-depth conversations with Bay Area artists, muralists, and creative professionals — covering craft, career, community, and the realities of working in public art.
           </p>
-          <p className="text-muted-foreground leading-relaxed mb-8">
+          <p className="text-black leading-relaxed mb-8">
             Episodes feature guests including Rachel Wolfe, Timothy B., Oni Jahmora, and others. Browse the archive and watch on YouTube.
           </p>
           <a
@@ -183,7 +183,7 @@ const TeamSection = () => {
             <br />
             <span className="text-primary">The Podcast</span>
           </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
+          <p className="text-white text-lg max-w-xl mx-auto">
             The passionate team bringing you insightful conversations with the Bay Area's top artists.
           </p>
         </div>
@@ -285,7 +285,7 @@ const GuestsSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Featured Guests
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             We've had the honor of speaking with some of the Bay Area's most talented and influential artists.
           </p>
         </motion.div>
@@ -376,7 +376,7 @@ const CTASection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
             Join The Conversation
           </h2>
-          <p className="text-primary-foreground/80 text-lg md:text-xl mb-10">
+          <p className="text-white text-lg md:text-xl mb-10">
             Subscribe now and never miss an episode. New interviews drop every Friday.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

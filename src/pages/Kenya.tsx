@@ -45,10 +45,10 @@ const MissionSection = () => {
               Art + Solar
               <span className="text-primary"> Kenya 2024</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <p className="text-black text-lg leading-relaxed mb-6">
               In October 2024, BAMP partnered with GivePower to send ten Bay Area BIPOC artists to Kenya — painting a large-scale mural and installing solar panels at a rural school. The result: a community transformed, artists with global perspective, and a model for international public art philanthropy.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-black leading-relaxed mb-8">
               Art + Solar Kenya is an ongoing initiative. We are actively building toward the next expedition, combining professional mural production with clean energy infrastructure to create lasting impact in underserved communities.
             </p>
 
@@ -117,7 +117,7 @@ const PartnershipSection = () => {
                 <div className="absolute bottom-4 left-4 right-4">
                   <Zap className="w-8 h-8 text-primary mb-2" />
                   <h3 className="font-display text-lg font-bold text-white">GivePower</h3>
-                  <p className="text-white/70 text-xs">2,650+ solar installations</p>
+                  <p className="text-white text-xs">2,650+ solar installations</p>
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-2xl aspect-square">
@@ -130,7 +130,7 @@ const PartnershipSection = () => {
                 <div className="absolute bottom-4 left-4 right-4">
                   <Palette className="w-8 h-8 text-primary mb-2" />
                   <h3 className="font-display text-lg font-bold text-white">BAMP</h3>
-                  <p className="text-white/70 text-xs">Art & cultural exchange</p>
+                  <p className="text-white text-xs">Art & cultural exchange</p>
                 </div>
               </div>
             </div>
@@ -290,7 +290,7 @@ const HowToHelp = () => {
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
               How You Can Help Us
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-black text-lg">
               There are many ways to support our Kenya initiative and help make a lasting difference. Whether it's through donations, spreading the word, or volunteering your time and skills, every contribution brings us closer to empowering communities through art and sustainable energy. Your support helps fund mural supplies, solar panel installations, and travel for BIPOC artists to participate in this life-changing cultural exchange.
             </p>
           </motion.div>
@@ -325,7 +325,7 @@ const HowToHelp = () => {
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
                 {way.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-black leading-relaxed mb-6">
                 {way.description}
               </p>
             </motion.div>
@@ -373,7 +373,7 @@ const InequalitySection = () => {
             <h3 className="font-display text-xl font-bold text-foreground mb-3">
               The Problem
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-black leading-relaxed mb-6">
               Limited African American representation exists in corporate-sponsored international
               philanthropic treks. Financial barriers, lack of awareness, and systemic inequities
               have historically prevented BIPOC artists from participating in global initiatives.
@@ -382,7 +382,7 @@ const InequalitySection = () => {
             <h3 className="font-display text-xl font-bold text-foreground mb-3">
               Our Solution
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-black leading-relaxed mb-6">
               The Art + Solar Kenya initiative directly addresses these barriers by fully funding
               BIPOC artists' participation, ensuring diversity in international philanthropy,
               and creating pathways for underrepresented communities to engage in global change.
@@ -391,13 +391,13 @@ const InequalitySection = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-primary/5 p-4 rounded-xl">
                 <h4 className="font-semibold text-foreground mb-1 text-sm">Diversity & Inclusion</h4>
-                <p className="text-muted-foreground text-xs">
+                <p className="text-black text-xs">
                   We prioritize BIPOC representation in all our international programs.
                 </p>
               </div>
               <div className="bg-primary/5 p-4 rounded-xl">
                 <h4 className="font-semibold text-foreground mb-1 text-sm">Financial Support</h4>
-                <p className="text-muted-foreground text-xs">
+                <p className="text-black text-xs">
                   Full funding ensures financial barriers don't prevent participation.
                 </p>
               </div>

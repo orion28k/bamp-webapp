@@ -85,7 +85,7 @@ const ServicesGrid = () => {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
             Comprehensive Mural Services
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-black text-lg">
             We offer a full range of services to bring your vision to life, 
             from concept development to final installation.
           </p>
@@ -117,20 +117,20 @@ const ServicesGrid = () => {
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="text-black mb-4 text-sm leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm">
                       <Check className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">{feature}</span>
+                      <span className="text-black">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-auto">
                   {service.comingSoon ? (
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-muted text-black text-sm font-medium">
                       <Sparkles className="w-3.5 h-3.5" />
                       Coming Soon
                     </span>
@@ -157,7 +157,7 @@ const ServicesGrid = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
             Ready to Start Your Project?
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-white text-lg mb-8 max-w-xl mx-auto">
             Let's discuss how we can transform your space with a custom mural that tells your unique story.
           </p>
           <Link to="/contact">
@@ -216,7 +216,7 @@ const ProcessSection = () => {
               <h3 className="font-display text-lg font-bold text-foreground mb-2">
                 {step.title}
               </h3>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-black text-sm">
                 {step.description}
               </p>
               {index < steps.length - 1 && (
@@ -295,7 +295,7 @@ const FAQSection = () => {
               </button>
               {openIndex === index && (
                 <div className="px-6 pb-6">
-                  <p className="text-muted-foreground">{faq.answer}</p>
+                  <p className="text-black">{faq.answer}</p>
                 </div>
               )}
             </motion.div>
