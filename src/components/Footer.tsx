@@ -1,17 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Instagram, Youtube, Mail, MapPin, ArrowRight, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 export const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +34,7 @@ export const Footer = () => {
     { label: "About Us", href: "/about" },
     { label: "Our Services", href: "/services" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Newsletter", href: "/join-us" },
   ];
 
   const supportLinks = [
@@ -54,52 +50,6 @@ export const Footer = () => {
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
       
-      {/* Newsletter Section */}
-      <div className="border-b border-secondary-foreground/10">
-        <div className="container mx-auto px-6 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <span className="inline-block px-4 py-2 bg-primary/20 rounded-full text-primary text-sm font-medium mb-4">
-              Stay Connected
-            </span>
-            <h3 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Join Our Community
-            </h3>
-            <p className="text-secondary-foreground/70 mb-8 max-w-2xl mx-auto">
-              Subscribe to our newsletter for updates on new murals, community events, 
-              art workshops, and ways to get involved.
-            </p>
-            
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/50 h-12 rounded-full px-6"
-                required
-                disabled={loading}
-              />
-              <Button
-                type="submit"
-                disabled={loading}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 rounded-full px-8 group"
-              >
-                {subscribed ? "Subscribed!" : loading ? "Sending…" : "Subscribe"}
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
-            {error && (
-              <p className="text-red-400 text-sm mt-3">{error}</p>
-            )}
-          </motion.div>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">

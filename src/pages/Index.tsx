@@ -11,9 +11,9 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src="/images/murals/IMG_3631.jpeg"
+          src="/images/heroes/image000000.jpeg"
           alt="BAMP community mural art"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_80%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-bamp-charcoal/80 via-bamp-charcoal/60 to-bamp-charcoal/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-bamp-charcoal/70 via-transparent to-transparent" />
