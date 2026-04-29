@@ -1,9 +1,7 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Mail, MapPin, Clock, Send, Instagram, Youtube, CheckCircle } from "lucide-react";
+import { useRef, useEffect } from "react";
+import { Mail, MapPin, Clock, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import PageHero from "@/components/PageHero";
 
 const Contact = () => {
@@ -26,51 +24,16 @@ const Contact = () => {
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-    type: "general",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    try {
-      const res = await fetch("https://thebamp.org/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          ...(formData.phone && { phone: formData.phone }),
-          ...(formData.subject && { subject: formData.subject }),
-          ...(formData.type !== "general" && { type: formData.type }),
-        }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
-
-      setSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "", type: "general" });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://js-na2.hsforms.net/forms/embed/245382363.js";
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const contactInfo = [
     {
@@ -88,14 +51,6 @@ const ContactSection = () => {
       title: "Hours",
       lines: ["Monday - Friday: 10am - 6pm", "By appointment only"],
     },
-  ];
-
-  const inquiryTypes = [
-    { value: "general", label: "General Inquiry" },
-    { value: "commission", label: "Commission a Mural" },
-    { value: "partnership", label: "Partnership Opportunity" },
-    { value: "volunteer", label: "Volunteer" },
-    { value: "press", label: "Press & Media" },
   ];
 
   return (
@@ -159,7 +114,7 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* HubSpot Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -167,132 +122,12 @@ const ContactSection = () => {
             className="lg:col-span-2"
           >
             <div className="bg-card rounded-2xl shadow-lg p-8">
-              {submitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-2">
-                    Message Sent!
-                  </h3>
-                  <p className="text-black">
-                    Thank you for reaching out. We'll get back to you within 24-48 hours.
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                    Send Us a Message
-                  </h3>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Inquiry Type */}
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        What can we help you with?
-                      </label>
-                      <div className="flex flex-wrap gap-2">
-                        {inquiryTypes.map((type) => (
-                          <button
-                            key={type.value}
-                            type="button"
-                            onClick={() => setFormData({ ...formData, type: type.value })}
-                            className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                              formData.type === type.value
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-muted text-black hover:bg-muted/80"
-                            }`}
-                          >
-                            {type.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Name & Email */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Your Name *
-                        </label>
-                        <Input
-                          type="text"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="John Doe"
-                          required
-                          className="h-12 rounded-xl"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Email Address *
-                        </label>
-                        <Input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="john@example.com"
-                          required
-                          className="h-12 rounded-xl"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Phone & Subject */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Phone Number
-                        </label>
-                        <Input
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="(555) 123-4567"
-                          className="h-12 rounded-xl"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Subject
-                        </label>
-                        <Input
-                          type="text"
-                          value={formData.subject}
-                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          placeholder="How can we help?"
-                          className="h-12 rounded-xl"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Message */}
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Your Message *
-                      </label>
-                      <Textarea
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us more about your project or inquiry..."
-                        required
-                        className="min-h-[150px] rounded-xl resize-none"
-                      />
-                    </div>
-
-                    {error && (
-                      <div className="bg-destructive/10 text-destructive text-sm rounded-xl p-4">
-                        {error}
-                      </div>
-                    )}
-
-                    <Button type="submit" disabled={loading} className="w-full rounded-full h-12 text-lg group">
-                      {loading ? "Sending..." : "Send Message"}
-                      {!loading && <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
-                    </Button>
-                  </form>
-                </>
-              )}
+              <div
+                className="hs-form-frame"
+                data-region="na2"
+                data-form-id="3e65fd40-e703-4491-81db-4f01f0b9dd99"
+                data-portal-id="245382363"
+              />
             </div>
           </motion.div>
         </div>

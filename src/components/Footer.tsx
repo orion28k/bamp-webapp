@@ -68,7 +68,7 @@ export const Footer = () => {
               The Bay Area Mural Program is an award-winning nonprofit public art organization producing large-scale murals and cultural initiatives across the Bay Area and beyond.
             </p>
             <p className="text-secondary-foreground/50 text-xs mb-6">
-              501(c)(3) Nonprofit · EIN: 83-46667592
+              501(c)(3) Nonprofit
             </p>
             
             {/* Social Links */}

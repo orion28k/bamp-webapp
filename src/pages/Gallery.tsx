@@ -10,7 +10,7 @@ const artworks = [
   {
     src: "/images/murals/sports-all-star-bamp-timothy-b-2.jpeg",
     alt: "NBA All-Star BAMP Timothy B mural",
-    title: "NBA All-Star Weekend",
+    title: "Hoop Dreams",
     category: "Sports",
     location: "San Francisco, CA",
     year: "2022",

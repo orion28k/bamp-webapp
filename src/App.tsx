@@ -13,10 +13,11 @@ import Donate from "./pages/Donate";
 import ArtClash from "./pages/ArtClash";
 import Podcast from "./pages/Podcast";
 import Kenya from "./pages/Kenya";
-import JoinTheTeam from "./pages/JoinTheTeam";
 import OurTeam from "./pages/OurTeam";
 import BampCamp from "./pages/BampCamp";
 import BampCampRegister from "./pages/BampCampRegister";
+import MuralTour from "./pages/MuralTour";
+import MuralTourRegister from "./pages/MuralTourRegister";
 import JoinUs from "./pages/JoinUs";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
@@ -44,12 +45,13 @@ const App = () => (
             <Route path="/art-clash" element={<ArtClash />} />
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/kenya" element={<Kenya />} />
-            <Route path="/join-the-team" element={<JoinTheTeam />} />
             <Route path="/ourteam" element={<OurTeam />} />
             <Route path="/bamp-camp" element={<BampCamp />} />
+            <Route path="/mural-tour" element={<MuralTour />} />
             <Route path="/join-us" element={<JoinUs />} />
           </Route>
           <Route path="/bamp-camp/register" element={<BampCampRegister />} />
+          <Route path="/mural-tour/register" element={<MuralTourRegister />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

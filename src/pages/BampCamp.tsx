@@ -158,6 +158,34 @@ const pricingPlans = [
   },
 ];
 
+/* ─── EARLY CTA ──────────────────────────────────────────────────── */
+
+const EarlyCTA = () => (
+  <section className="bg-bamp-cream py-10">
+    <div className="container mx-auto px-6">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+        <div>
+          <p className="font-display text-2xl md:text-3xl font-bold text-bamp-charcoal leading-tight">
+            Ready to sign up for camp?
+          </p>
+          <p className="text-black text-sm mt-1">
+            Space is limited. Register your child for Summer BAMP Camp 2026 today!
+          </p>
+        </div>
+        <Link to="/bamp-camp/register" className="flex-shrink-0">
+          <Button
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 rounded-full group"
+          >
+            Register Now
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </Link>
+      </div>
+    </div>
+  </section>
+);
+
 /* ─── MAIN PAGE ───────────────────────────────────────────────────── */
 
 const BampCamp = () => {
@@ -167,12 +195,13 @@ const BampCamp = () => {
         title="BAMP Camp"
         subtitle="Summer Youth Mural Camp"
         description="Summer BAMP Camp is a hands-on creative program where youth ages 5–13 create real public art, explore Oakland's culture, and develop their artistic voice alongside professional artists."
-        backgroundImage="/images/murals/community-youthempowerment1.jpeg"
+        backgroundImage="/images/heroes/21964FB4-DC59-4088-888E-4F4B631B9145.jpeg"
         breadcrumbs={[{ label: "BAMP Camp", href: "/bamp-camp" }]}
-        imagePosition="center 40%"
+        imagePosition="center 50%"
       />
 
       <QuickStatsBar />
+      <EarlyCTA />
       <AboutSection />
       <ScheduleSection />
       <ActivitiesSection />

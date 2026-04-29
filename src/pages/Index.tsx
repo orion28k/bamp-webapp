@@ -1,86 +1,184 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Play, Paintbrush, Building2, Heart, Users } from "lucide-react";
+import { ArrowRight, Play, Paintbrush, Building2, Heart, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Hero Section
-const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/heroes/image000000.jpeg"
-          alt="BAMP community mural art"
-          className="w-full h-full object-cover object-[center_80%]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-bamp-charcoal/80 via-bamp-charcoal/60 to-bamp-charcoal/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-bamp-charcoal/70 via-transparent to-transparent" />
-      </div>
+// Hero Carousel
+const SLIDE_INTERVAL = 6000;
 
-      {/* Decorative Elements */}
+interface HeroSlide {
+  id: string;
+  bg: string;
+  bgPosition: string;
+  flipBg?: boolean;
+  subtitle?: string;
+  titleLine1: string;
+  titleGradient: string;
+  titleLine3?: string;
+  description: string;
+  ctas: { label: string; href: string }[];
+}
+
+const heroSlides: HeroSlide[] = [
+  {
+    id: "bamp",
+    bg: "/images/heroes/21964FB4-DC59-4088-888E-4F4B631B9145.jpeg",
+    bgPosition: "center center",
+    flipBg: true,
+    titleLine1: "We Are The",
+    titleGradient: "Bay Area",
+    titleLine3: "Mural Program",
+    description:
+      "The Bay Area Mural Program is an award-winning nonprofit public art organization delivering large-scale murals for communities, schools, and global brands including the NBA, Golden State Warriors, Valkyries, Jordan Brand, Rakuten, Amazon, and YMCA.",
+    ctas: [{ label: "View Our Work", href: "/gallery" }],
+  },
+  {
+    id: "camp",
+    bg: "/images/murals/bamp-camp-kids-painting.webp",
+    bgPosition: "center center",
+    subtitle: "Summer 2026",
+    titleLine1: "Introducing",
+    titleGradient: "BAMP Camp",
+    description:
+      "Join us this summer for a four-week hands-on program where youth ages 5–13 create real public art alongside professional muralists. Space is limited — register early.",
+    ctas: [{ label: "Learn More", href: "/bamp-camp" }],
+  },
+  {
+    id: "tour",
+    bg: "/images/heroes/IMG_1978.JPG",
+    bgPosition: "center center",
+    subtitle: "Downtown Oakland",
+    titleLine1: "Join Our",
+    titleGradient: "Mural Tour",
+    description:
+      "Walk Oakland's Broadway corridor and discover 10 large-scale murals by local and nationally recognized artists. A free self-guided walking experience through the heart of Oakland.",
+    ctas: [{ label: "Register Now", href: "/mural-tour/register" }],
+  },
+];
+
+const Hero = () => {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(
+      () => setCurrent((c) => (c + 1) % heroSlides.length),
+      SLIDE_INTERVAL
+    );
+    return () => clearInterval(t);
+  }, [paused, current]);
+
+  const prev = () => setCurrent((c) => (c - 1 + heroSlides.length) % heroSlides.length);
+  const next = () => setCurrent((c) => (c + 1) % heroSlides.length);
+
+  const slide = heroSlides[current];
+
+  return (
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Background images with crossfade */}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={slide.id + "-bg"}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.9 }}
+        >
+          <img
+            src={slide.bg}
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ objectPosition: slide.bgPosition, transform: slide.flipBg ? "scaleX(-1)" : undefined }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-bamp-charcoal/80 via-bamp-charcoal/60 to-bamp-charcoal/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bamp-charcoal/70 via-transparent to-transparent" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Decorative elements */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-20">
+      {/* Slide content */}
+      <div className="relative z-10 container mx-auto pl-20 md:pl-24 pr-6 pt-20 pb-32">
         <div className="max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground leading-[1.1] mb-6"
-          >
-            We Are The
-            <span className="block text-gradient">Bay Area</span>
-            <span className="block">Mural Program</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-white max-w-2xl mb-10 leading-relaxed"
-          >
-            The Bay Area Mural Program is an award-winning nonprofit public art organization delivering large-scale murals for communities, schools, and global brands including the NBA, Golden State Warriors, Valkyries, Jordan Brand, Rakuten, Amazon, and YMCA.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link to="/gallery">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-full text-lg group"
-              >
-                View Our Work
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </motion.div>
-
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+            >
+              {slide.subtitle && (
+                <p className="text-white font-semibold uppercase tracking-widest text-sm mb-4">
+                  {slide.subtitle}
+                </p>
+              )}
+              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground leading-[1.2] mb-6">
+                {slide.titleLine1}
+                <span className="block text-gradient pb-4">{slide.titleGradient}</span>
+                {slide.titleLine3 && <span className="block">{slide.titleLine3}</span>}
+              </h1>
+              <p className="text-lg md:text-xl text-white max-w-2xl mb-10 leading-relaxed">
+                {slide.description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                {slide.ctas.map((cta) => (
+                  <Link key={cta.href} to={cta.href}>
+                    <Button
+                      size="lg"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-full text-lg group"
+                    >
+                      {cta.label}
+                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      {/* Prev / Next arrows */}
+      <button
+        onClick={prev}
+        aria-label="Previous slide"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center backdrop-blur-sm transition-all duration-200"
       >
-        <div className="w-6 h-10 border-2 border-primary-foreground/30 rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-3 bg-primary-foreground/50 rounded-full mt-2"
+        <ChevronLeft className="w-6 h-6 text-white" />
+      </button>
+      <button
+        onClick={next}
+        aria-label="Next slide"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center backdrop-blur-sm transition-all duration-200"
+      >
+        <ChevronRight className="w-6 h-6 text-white" />
+      </button>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+        {heroSlides.map((s, i) => (
+          <button
+            key={s.id}
+            onClick={() => setCurrent(i)}
+            className={`transition-all duration-300 rounded-full ${
+              i === current
+                ? "w-8 h-2 bg-primary"
+                : "w-2 h-2 bg-white/50 hover:bg-white/80"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
           />
-        </div>
-      </motion.div>
+        ))}
+      </div>
     </section>
   );
 };
