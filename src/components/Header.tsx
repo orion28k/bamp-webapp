@@ -19,8 +19,7 @@ const navLinks = [
     href: "#",
     submenu: [
       { label: "Our Services", href: "/services" },
-      { label: "BAMP Camp", href: "/bamp-camp" },
-      { label: "Mural Tour", href: "/mural-tour" },
+{ label: "Mural Tour", href: "/mural-tour" },
       { label: "Art & Solar Kenya", href: "/kenya" },
     ]
   },
