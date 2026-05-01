@@ -49,7 +49,7 @@ const muralStops = [
     title: "OUR LIBERATION",
     artists: "Rachel Wolfe-Goldsmith",
     org: "WOLFE PACK",
-    image: "",
+    image: "/images/murals/our-liberation.webp",
   },
   {
     number: 3,
@@ -57,7 +57,7 @@ const muralStops = [
     title: "OUR MOVEMENT",
     artists: "Rachel Wolfe-Goldsmith",
     org: "WOLFE PACK",
-    image: "",
+    image: "/images/murals/our-movement.webp",
   },
   {
     number: 4,
@@ -368,7 +368,7 @@ const MuralStopsSection = () => {
               /* ── Wide text card spanning 2 cols (stops 5 & 6) ── */
               return (
                 <FadeIn key={stop.number} delay={i * 0.04} className="xl:col-span-2">
-                  <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-bamp-charcoal/8 hover:border-primary/20 transition-all duration-300 h-full flex items-center gap-8 px-8 py-7">
+                  <div className="group bg-primary/10 rounded-2xl shadow-sm hover:shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 h-full flex items-center gap-8 px-8 py-7">
                     <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg flex-shrink-0">
                       <span className="font-accent text-2xl text-white leading-none">{stop.number}</span>
                     </div>
